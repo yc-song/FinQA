@@ -806,22 +806,13 @@ def evaluate_result(json_in, json_ori, all_res_file, error_file, program_mode):
                 exe_correct += 1
 
             if equal_program(gold, pred):
-                if exe_res != gold_res:
-                    print(each_id)
-                    print(gold)
-                    print(pred)
-                    print(gold_res)
-                    print(exe_res)
-                    print(each_ori_data["id"])
+                print("*****")
+                print("id:", each_id)
+                print("gold program", gold)
+                print("prediction program", pred)
+                print("gold result", gold_res)
+                print("execution result", exe_res)
                 assert exe_res == gold_res
-                prog_correct += 1
-                if "".join(gold) != "".join(pred):
-                    print(each_id)
-                    print(gold)
-                    print(pred)
-                    print(gold_res)
-                    print(exe_res)
-                    print(each_ori_data["id"])
 
         each_ori_data["qa"]["predicted"] = pred
 
@@ -833,7 +824,6 @@ def evaluate_result(json_in, json_ori, all_res_file, error_file, program_mode):
     prog_acc = float(prog_correct) / len(data)
 
     print("All: ", len(data))
-    print("Correct: ", correct)
     print("Exe acc: ", exe_acc)
     print("Prog acc: ", prog_acc)
 
