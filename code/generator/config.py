@@ -3,9 +3,9 @@ class parameters():
     prog_name = "generator"
 
     # set up your own path here
-    root_path = "your_project_path"
-    output_path = "path_to_store_outputs"
-    cache_dir = "path_for_other_cache"
+    root_path = "/shared/s3/lab07/jongsong/FinQA/"
+    output_path = "/shared/s3/lab07/jongsong/FinQA/result/"
+    cache_dir = "/shared/s3/lab07/jongsong/FinQA/cache/"
 
     model_save_name = "bert-base"
 
@@ -16,13 +16,13 @@ class parameters():
     ### files from the retriever results
     train_file = root_path + "dataset/train_retrieve.json"
     valid_file = root_path + "dataset/dev_retrieve.json"
-    test_file = root_path + "dataset/test_retrieve.json"
+    test_file = root_path + "dataset/mini_dataset.json"
 
     # infer table-only text-only
     # test_file = root_path + "dataset/test_retrieve_7k_text_only.json"
 
-    op_list_file = "operation_list.txt"
-    const_list_file = "constant_list.txt"
+    op_list_file = "code/generator/operation_list.txt"
+    const_list_file = "code/generator/constant_list.txt"
 
     # # model choice: bert, roberta, albert
     pretrained_model = "bert"
@@ -41,7 +41,7 @@ class parameters():
 
     # single sent or sliding window
     # single, slide, gold, none
-    retrieve_mode = "single"
+    retrieve_mode = "gold"
 
     # use seq program or nested program
     program_mode = "seq"
@@ -50,7 +50,7 @@ class parameters():
     # private: for testing private test data
     device = "cuda"
     mode = "train"
-    saved_model_path = output_path + "roberta-large-gold_20210713020324/saved_model/loads/119/model.pt"
+    saved_model_path = output_path + "model.pt"
     build_summary = False
 
     sep_attention = True
