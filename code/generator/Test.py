@@ -67,8 +67,8 @@ test_data, test_examples, op_list, const_list = \
     read_examples(input_path=conf.test_file, tokenizer=tokenizer,
                   op_list=op_list, const_list=const_list, log_file=log_file)
 
-print(const_list)
-print(op_list)
+print("constant list:", const_list)
+print("operation list:", op_list)
 
 kwargs = {"examples": test_examples,
           "tokenizer": tokenizer,
@@ -165,7 +165,7 @@ def generate_test():
                        const_list=const_list)
     model = nn.DataParallel(model)
     model.to(conf.device)
-    model.load_state_dict(torch.load(conf.saved_model_path))
+    model.load_state_dict(torch.load(conf.saved_model_path), strict = False)
     model.eval()
     generate(test_examples, test_features, model, results_path, mode='test')
 
